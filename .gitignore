@@ -1,0 +1,5 @@
+/.venv/
+/mysql/
+.idea
+
+/client/

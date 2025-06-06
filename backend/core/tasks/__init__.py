@@ -1,0 +1,1 @@
+from .update_price_task import update_vehicle_prices
