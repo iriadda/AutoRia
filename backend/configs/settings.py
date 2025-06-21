@@ -90,10 +90,10 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'OPTIONS': {
-            # 'ssl': {'ssl_mode': os.getenv('DB_SSL_MODE')},
-            'ssl': {'ca': '/app/server-ca.pem'},
-        },
+        # 'OPTIONS': {
+        #     # 'ssl': {'ssl_mode': os.getenv('DB_SSL_MODE')},
+        #     'ssl': {'ca': '/app/server-ca.pem'},
+        # },
     }
 }
 

@@ -29,7 +29,7 @@ class ChatConsumer(GenericAsyncAPIConsumer):
         self.user_name = await self.get_profile_name()
 
         if target_user_id == current_user_id:
-            return  # не можна створити чат із собою
+            return
 
         target_user = await self.get_target_user(target_user_id)
         room_name = f"chat_{min(target_user_id, current_user_id)}_{max(target_user_id, current_user_id)}"

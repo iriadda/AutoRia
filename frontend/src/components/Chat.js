@@ -25,7 +25,7 @@ export const Chat = ({targetUserId}) => {
 
     const socketInit = async (userId) => {
         const { chat } = await socketService();
-        const client = await chat(userId); // WebSocket: ws://yourdomain/chat/<targetUserId>/
+        const client = await chat(userId);
 
         client.onopen = () => {
             console.log('Chat socket connected');
