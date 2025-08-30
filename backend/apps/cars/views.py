@@ -33,7 +33,11 @@ class BrandListCreateView(ListCreateAPIView):
     """
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsManagerOrSuperUser]
+
+    def get_permissions(self):
+        if self.request.method == "POST":
+            return [IsAuthenticatedOrReadOnly(), IsManagerOrSuperUser()]
+        return [IsAuthenticatedOrReadOnly()]
 
 
 class BrandRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
