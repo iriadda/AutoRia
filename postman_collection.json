@@ -2,9 +2,9 @@
 	"info": {
 		"_postman_id": "1b759f1b-7f73-48b5-85d5-c0c83e9e1e2c",
 		"name": "autoRia",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "43501659",
-		"_collection_link": "https://iryna-6985021.postman.co/workspace/3716ed05-8004-4912-8256-954974483b7e/collection/43501659-1b759f1b-7f73-48b5-85d5-c0c83e9e1e2c?action=share&source=collection_link&creator=43501659"
+		"_collection_link": "https://iryna-6985021.postman.co/workspace/Iryna's-Workspace~3716ed05-8004-4912-8256-954974483b7e/collection/43501659-1b759f1b-7f73-48b5-85d5-c0c83e9e1e2c?action=share&source=collection_link&creator=43501659"
 	},
 	"item": [
 		{
@@ -56,16 +56,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/cars/33",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"33"
-							]
-						}
+						"url": "{{host}}/cars/33"
 					},
 					"response": []
 				},
@@ -74,35 +65,22 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"description\": \" Дурна магина\"\r\n}",
+							"raw": "{\r\n  \"description\": \"  магина\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/cars/42",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"42"
-							]
-						}
+						"url": "{{host}}/cars/1"
 					},
 					"response": []
 				},
@@ -111,34 +89,22 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"car_model\": 1,\r\n  \"year\": 2023,\r\n  \"mileage\": 1500,\r\n  \"transmission\": \"automatic\",\r\n  \"fuel_type\": \"Petrol\",\r\n  \"engine_capacity\": 2.0,\r\n  \"description\": \"Дурна машина\",\r\n  \"price_input\": 25000,\r\n  \"currency\": \"USD\",\r\n  \"region\":\"kyiv\"\r\n\r\n}",
+							"raw": "{\r\n  \"car_model\": 1,\r\n  \"year\": 2023,\r\n  \"mileage\": 1500,\r\n  \"transmission\": \"automatic\",\r\n  \"fuel_type\": \"Petrol\",\r\n  \"engine_capacity\": 2.0,\r\n  \"description\": \"дурна car\",\r\n  \"price_input\": 25000,\r\n  \"currency\": \"USD\",\r\n  \"region\":\"kyiv\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/cars",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars"
-							]
-						}
+						"url": "{{host}}/cars"
 					},
 					"response": []
 				},
@@ -163,17 +129,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/cars/photo/38",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"photo",
-								"38"
-							]
-						}
+						"url": "{{host}}/cars/photo/38"
 					},
 					"response": []
 				},
@@ -182,13 +138,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -202,17 +154,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/cars/photo/37",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"photo",
-								"37"
-							]
-						}
+						"url": "{{host}}/cars/photo/1"
 					},
 					"response": []
 				},
@@ -224,16 +166,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/cars/brand",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"brand"
-							]
-						}
+						"url": "{{host}}/cars/brand"
 					},
 					"response": []
 				},
@@ -242,35 +175,22 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Kapa\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Toyota\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/cars/brand",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"brand"
-							]
-						}
+						"url": "{{host}}/cars/brand"
 					},
 					"response": []
 				},
@@ -289,18 +209,7 @@
 							"mode": "file",
 							"file": {}
 						},
-						"url": {
-							"raw": "{{host}}/cars/brand/2/models",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"brand",
-								"2",
-								"models"
-							]
-						}
+						"url": "{{host}}/cars/brand/2/models"
 					},
 					"response": []
 				},
@@ -309,37 +218,22 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"model\": \"x7\"\r\n}",
+							"raw": "{\r\n    \"model\": \"corolla\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/cars/brand/2/add_model",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"brand",
-								"2",
-								"add_model"
-							]
-						}
+						"url": "{{host}}/cars/brand/1/add_model"
 					},
 					"response": []
 				},
@@ -348,13 +242,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -367,17 +257,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/cars/brand/missing",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cars",
-								"brand",
-								"missing"
-							]
-						}
+						"url": "{{host}}/cars/brand/missing"
 					},
 					"response": []
 				}
@@ -402,17 +282,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"olegseredjuk@gmail.com\",\r\n    \"password\":\"user\",\r\n    \"profile\":{\r\n        \"first_name\":\"Oleg\"\r\n    }\r\n\r\n}"
+							"raw": "{\r\n    \"email\":\"user1@gmail.com\",\r\n    \"password\":\"user\",\r\n    \"profile\":{\r\n        \"first_name\":\"Max\"\r\n    }\r\n\r\n}"
 						},
-						"url": {
-							"raw": "{{host}}/users",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users"
-							]
-						}
+						"url": "{{host}}/users"
 					},
 					"response": []
 				},
@@ -431,15 +303,7 @@
 							"mode": "raw",
 							"raw": "{\r\n    \"name\":\"Toyota\"\r\n}"
 						},
-						"url": {
-							"raw": "{{host}}/users",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users"
-							]
-						}
+						"url": "{{host}}/users"
 					},
 					"response": []
 				},
@@ -451,13 +315,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -465,16 +325,7 @@
 							"mode": "raw",
 							"raw": "{\r\n    \"name\":\"Toyota\"\r\n}"
 						},
-						"url": {
-							"raw": "{{host}}/users/profile",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"profile"
-							]
-						}
+						"url": "{{host}}/users/profile"
 					},
 					"response": []
 				},
@@ -483,13 +334,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [
@@ -503,17 +350,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": {
-							"raw": "{{host}}/users/2/manager",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"2",
-								"manager"
-							]
-						}
+						"url": "{{host}}/users/2/manager"
 					},
 					"response": []
 				},
@@ -522,13 +359,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [
@@ -542,17 +375,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": {
-							"raw": "{{host}}/users/4/block",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"4",
-								"block"
-							]
-						}
+						"url": "{{host}}/users/4/block"
 					},
 					"response": []
 				},
@@ -561,13 +384,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [
@@ -581,17 +400,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": {
-							"raw": "{{host}}/users/4/unblock",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"4",
-								"unblock"
-							]
-						}
+						"url": "{{host}}/users/4/unblock"
 					},
 					"response": []
 				},
@@ -600,13 +409,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [],
@@ -614,16 +419,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": {
-							"raw": "{{host}}/users/buy-premium",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"buy-premium"
-							]
-						}
+						"url": "{{host}}/users/buy-premium"
 					},
 					"response": []
 				}
@@ -659,14 +455,14 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "user1@gmail.com",
-									"type": "text"
+									"value": "iriadda@gmail.com",
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "email",
-									"value": "olegseredjuk@gmail.com",
-									"type": "text",
-									"disabled": true
+									"value": "user1@gmail.com",
+									"type": "text"
 								},
 								{
 									"key": "password",
@@ -675,15 +471,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/auth",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth"
-							]
-						}
+						"url": "{{host}}/auth"
 					},
 					"response": []
 				},
@@ -723,16 +511,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/auth/refresh",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"refresh"
-							]
-						}
+						"url": "{{host}}/auth/refresh"
 					},
 					"response": []
 				},
@@ -760,16 +539,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/auth/recovery",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"recovery"
-							]
-						}
+						"url": "{{host}}/auth/recovery"
 					},
 					"response": []
 				},
@@ -797,17 +567,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/auth/recovery/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVjb3ZlcnkiLCJleHAiOjE3NDc4MzE5NjUsImlhdCI6MTc0NzgzMTM2NSwianRpIjoiZmVkYjUwOTk4YWIyNDcyOWE3ZmI1MjM3MGVlOTQyZWYiLCJ1c2VyX2lkIjo0fQ.fvGFRu9KAsi7bDBg9gjEhY7C4bfMxuS3iFTG3V7DV8c",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"recovery",
-								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVjb3ZlcnkiLCJleHAiOjE3NDc4MzE5NjUsImlhdCI6MTc0NzgzMTM2NSwianRpIjoiZmVkYjUwOTk4YWIyNDcyOWE3ZmI1MjM3MGVlOTQyZWYiLCJ1c2VyX2lkIjo0fQ.fvGFRu9KAsi7bDBg9gjEhY7C4bfMxuS3iFTG3V7DV8c"
-							]
-						}
+						"url": "{{host}}/auth/recovery/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVjb3ZlcnkiLCJleHAiOjE3NDc4MzE5NjUsImlhdCI6MTc0NzgzMTM2NSwianRpIjoiZmVkYjUwOTk4YWIyNDcyOWE3ZmI1MjM3MGVlOTQyZWYiLCJ1c2VyX2lkIjo0fQ.fvGFRu9KAsi7bDBg9gjEhY7C4bfMxuS3iFTG3V7DV8c"
 					},
 					"response": []
 				},
@@ -833,23 +593,12 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "GET",
-						"header": [
-							{
-								"key": "email",
-								"value": "olegseredjuk@gmail.com\"",
-								"type": "text",
-								"disabled": true
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -867,16 +616,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/auth/socket",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"socket"
-							]
-						}
+						"url": "{{host}}/auth/socket"
 					},
 					"response": []
 				}
@@ -893,13 +633,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -927,16 +663,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/chat/my-rooms",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"chat",
-								"my-rooms"
-							]
-						}
+						"url": "{{host}}/chat/my-rooms"
 					},
 					"response": []
 				}
@@ -953,13 +680,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -1009,16 +732,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/analytics/35",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"analytics",
-								"35"
-							]
-						}
+						"url": "{{host}}/analytics/35"
 					},
 					"response": []
 				}
