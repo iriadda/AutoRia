@@ -26,11 +26,9 @@ class EmailService:
         msg.send()
 
     @classmethod
-    def send_vehicle_warning(cls, vehicle):
+    def send_vehicle_warning(cls, user):
         context = {
-            "vehicle_id": vehicle.id,
-            "attempts": vehicle.edit_attempts,
-            "description": vehicle.description,
+            "user_id": user.id,
         }
         manager_emails = list(UserModel.objects.filter(is_manager=True).values_list('email', flat=True))
         cls.__send_email.delay(

@@ -89,7 +89,7 @@ const AddVehicleComponent = () => {
                     const photoUploadPromises = photos.map(photo => {
                         const singleForm = new FormData();
                         singleForm.append('photo', photo);
-                        return photoService.addPhoto(data.id, singleForm); // 👈 ти повинна мати endpoint `/vehicles/:id/photos/`
+                        return photoService.addPhoto(data.id, singleForm);
                     });
 
                     await Promise.all(photoUploadPromises);
@@ -104,9 +104,9 @@ const AddVehicleComponent = () => {
                     resData?.msg?.includes('foul language')
                 ) {
                     alert(resData.msg);
-                    navigate(`/vehicles/edit/${resData.vehicle_id}`);
+                    // navigate(`/vehicles/edit/${resData.vehicle_id}`);
                 } else {
-                    alert('Error: ' + JSON.stringify(resData));
+                    alert(resData.msg);
                 }
             });
     };

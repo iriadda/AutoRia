@@ -28,7 +28,7 @@ npm install
 ```bash
 npm run dev
 ```
-4. Відкрийте http://localhost
+4. Відкрийте http://localhost/vehicles
 
 ##  Основні компоненти
 - `pages/` – сторінки (додавання авто, перегляд, чат тощо)

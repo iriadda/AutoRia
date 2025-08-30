@@ -1,4 +1,5 @@
 from django.core import validators as V
+from django.core.validators import MinValueValidator
 from django.db import models
 
 from core.enums.redex_enum import RedexEnum
@@ -83,10 +84,9 @@ class VehicleModel(BaseModel):
         V.MinValueValidator(0.6),
         V.MaxValueValidator(10.0)])
     description = models.TextField(blank=True, max_length=2000)
-    edit_attempts = models.IntegerField(default=0)
 
     region = models.CharField(max_length=50, choices=RegionChoices)
-    price_input = models.DecimalField(max_digits=10, decimal_places=2)
+    price_input = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
     currency = models.CharField(max_length=3, choices=[('USD', 'USD'), ('EUR', 'EUR'), ('UAH', 'UAH')])
     price_uah = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     price_eur = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)

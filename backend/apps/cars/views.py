@@ -22,7 +22,7 @@ from apps.analytics.models import ViewerModel
 from apps.cars.filter import VehicleFilter
 from apps.cars.models import Brand, CarModel, VehicleModel, VehiclePhotoModel
 from apps.cars.serializer import BrandSerializer, CarModelSerializer, VehiclePhotoSerializer, VehicleSerializer
-from apps.users.permissions import IsManagerOrSuperUser
+from apps.users.permissions import IsManagerOrSuperUser, IsVehicleOwner
 
 
 @method_decorator(name='get', decorator=swagger_auto_schema(security=[]))
@@ -123,6 +123,7 @@ class VehicleListCreateView(ListCreateAPIView):
 
     def perform_create(self, serializer):
         profile = self.request.user.profile
+        user = self.request.user
         user_vehicles_count = VehicleModel.objects.filter(user=profile).count()
 
         if not profile.is_premium and user_vehicles_count >= 1:
@@ -130,14 +131,24 @@ class VehicleListCreateView(ListCreateAPIView):
 
         contains_bad_words = has_profanity(serializer.validated_data.get("description", ""))
 
+        if not hasattr(profile, 'vehicle_creation_attempts'):
+            profile.vehicle_creation_attempts = 0
+            profile.save()
+
         if contains_bad_words:
-            vehicle = serializer.save(user=profile, is_active=False, edit_attempts=1)
+            profile.vehicle_creation_attempts += 1
+            profile.save()
+
+            max_attempts = 3
+            if profile.vehicle_creation_attempts >= max_attempts:
+                EmailService.send_vehicle_warning(profile)
+                user.is_active = False
+                user.save()
+                raise PermissionDenied({"msg": "Maximum creation attempts reached. Your account is blocked."})
 
             raise ValidationError({
-                "msg": "The description contains foul language. You can try 2 more times..",
-                "vehicle_id": vehicle.id,
-                "edit_attempts": vehicle.edit_attempts,
-                "is_active": vehicle.is_active,
+                "msg": f"The description contains foul language. You can try {max_attempts - profile.vehicle_creation_attempts} more times.",
+                "edit_attempts": profile.vehicle_creation_attempts,
             })
 
         serializer.save(user=profile, is_active=True, is_checked=True)
@@ -154,7 +165,7 @@ class VehicleRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     """
     queryset = VehicleModel.objects.all()
     serializer_class = VehicleSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsVehicleOwner]
 
     def get(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -165,29 +176,6 @@ class VehicleRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
 
-    def perform_update(self, serializer):
-        instance = self.get_object()
-
-        if not self.request.user.is_authenticated or self.request.user.id != instance.user.id:
-            raise ValidationError({"msg": "Only the owner can update this vehicle."})
-
-        contains_bad_words = has_profanity(serializer.validated_data.get("description", ""))
-
-        if instance.edit_attempts >= 4:
-            raise ValidationError({"msg": "Ad blocked for editing after 3 failed attempts."})
-
-        if contains_bad_words:
-            instance.edit_attempts += 1
-            instance.save(update_fields=["edit_attempts", "is_active"])
-
-            if instance.edit_attempts == 4:
-                EmailService.send_vehicle_warning(vehicle=instance)
-
-            raise ValidationError({"msg": "The description contains foul language. Remaining attempts: " + str(
-                4 - instance.edit_attempts)})
-
-        serializer.save(is_active=True)
-        return Response(serializer.data, status.HTTP_200_OK)
 
 
 @method_decorator(name='get', decorator=swagger_auto_schema(security=[]))

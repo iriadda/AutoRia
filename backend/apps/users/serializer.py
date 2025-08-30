@@ -20,7 +20,8 @@ class ProfileSerializer(serializers.ModelSerializer):
             'is_seller',
             'created_at',
             'updated_at',
-            'cars'
+            'cars',
+            'vehicle_creation_attempts'
         )
 
 

@@ -59,7 +59,5 @@ class VehicleSerializer(serializers.ModelSerializer):
             'user_id',
             'created_at',
             'updated_at',
-            'edit_attempts',
             'vehicle_photos'
         )
-        read_only_fields = ('edit_attempts',)

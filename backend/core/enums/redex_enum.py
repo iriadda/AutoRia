@@ -3,7 +3,7 @@ from enum import Enum
 
 class RedexEnum(Enum):
     BRAND_NAME = (
-        r'^[A-Z][a-z]{1,19}$',
+        r'^[A-Z][a-zA-Z]{1,19}$',
         'Name must start with a capital letter and be 2–20 characters long',
     )
     CAR_MODEL = (

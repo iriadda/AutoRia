@@ -1,3 +1,11 @@
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
+
 services:
 
   app:
@@ -5,7 +13,6 @@ services:
       context: .
     volumes:
       - ./backend:/app
-      - ./server-ca.pem:/app/server-ca.pem
     env_file:
       - .env
     ports:
@@ -13,6 +20,11 @@ services:
     command:
       sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     restart: on-failure
+    networks:
+      - app-network
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 
 
   web:
@@ -23,10 +35,13 @@ services:
       - ./client:/usr/share/nginx/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./backend/static:/usr/share/nginx/doc
-
+    networks:
+      - app-network
 
   redis:
     image: redis:alpine
+    networks:
+      - app-network
 
 
   celery:
@@ -34,10 +49,13 @@ services:
       context: .
     volumes:
       - ./backend:/app
-      - ./server-ca.pem:/app/server-ca.pem
     env_file:
       - .env
     restart: on-failure
-
+    networks:
+      - app-network
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     command:
       sh -c "celery -A configs worker -l info -B"

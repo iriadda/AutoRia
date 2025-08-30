@@ -28,5 +28,6 @@ class Profile(BaseModel):
     last_name = models.CharField(max_length=50, blank=True)
     is_premium = models.BooleanField(default=False)
     is_seller = models.BooleanField(default=True)
+    vehicle_creation_attempts = models.PositiveIntegerField(default=0)
 
 

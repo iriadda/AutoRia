@@ -84,5 +84,15 @@ autoriaclone/
 
 ## API
 колекція Postman
+https://iryna-6985021.postman.co/workspace/Iryna's-Workspace~3716ed05-8004-4912-8256-954974483b7e/collection/43501659-1b759f1b-7f73-48b5-85d5-c0c83e9e1e2c?action=share&creator=43501659&active-environment=43501659-342401d8-9db6-4cc1-81c9-22d2e1945a71
+
+Приклад запиту чату:
+{
+  "action": "send_private_message",
+  "data": {
+    "text": "Hello!"
+  },
+  "request_id": {{$randomInt}}
+}
 🔗 Postman Collection або https://iryna-6985021.postman.co/workspace/Iryna's-Workspace~3716ed05-8004-4912-8256-954974483b7e/collection/43501659-1b759f1b-7f73-48b5-85d5-c0c83e9e1e2c?action=share&creator=43501659&active-environment=43501659-342401d8-9db6-4cc1-81c9-22d2e1945a71
 Документація: http://localhost/api/doc
